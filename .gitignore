@@ -4,15 +4,15 @@ __pycache__/
 *.pyc
 .env
 
-# Mac
-.DS_Store
-
 # Node
 node_modules/
 dist/
 
+# Mac
+.DS_Store
+
 # VS Code
 .vscode/
 
-# Build files
+# Build logs
 *.log
