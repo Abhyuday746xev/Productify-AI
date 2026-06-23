@@ -9,7 +9,10 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(apporigins=[
+    "http://localhost:5173",
+    "https://productify-ai-five.vercel.app/"
+])
 
 client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
