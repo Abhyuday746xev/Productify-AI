@@ -9,14 +9,23 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
+from flask_cors import CORS
+
 CORS(app, resources={
     r"/*": {
         "origins": [
-            "http://localhost:5173",
-            "https://productify-ai-five.vercel.app/"
+            "https://productify-ai-five.vercel.app"
         ]
     }
 })
+
+@app.after_request
+def after_request(response):
+    response.headers.add("Access-Control-Allow-Origin", "https://productify-ai-five.vercel.app")
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+    response.headers.add("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+    return response
+
 
 client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
