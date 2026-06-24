@@ -9,10 +9,15 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-CORS(apporigins=[
-    "http://localhost:5173",
-    "https://productify-ai-five.vercel.app/"
-])
+
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "http://localhost:5173",
+            "https://productify-ai-five.vercel.app"
+        ]
+    }
+})
 
 client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
@@ -449,9 +454,11 @@ Example:
 
 
 
-if __name__=="__main__":
+import os
 
+if __name__ == "__main__":
     app.run(
         debug=True,
-        port=5001
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000))
     )
