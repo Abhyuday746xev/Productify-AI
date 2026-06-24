@@ -37,7 +37,7 @@ setData(null)
 try{
 
 const res=await fetch(
-"http://127.0.0.1:5001/analyze",
+"https://productify-ai-2.onrender.com",
 {
 method:"POST",
 headers:{
