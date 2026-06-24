@@ -203,12 +203,7 @@ export default function Landing() {
           Join the next generation of AI product intelligence
         </p>
 
-        <a
-          href="/app"
-          className="inline-block mt-8 px-8 py-4 bg-purple-600 rounded-xl hover:bg-purple-500 transition"
-        >
-          Open Dashboard
-        </a>
+        
 
       </section>
 
