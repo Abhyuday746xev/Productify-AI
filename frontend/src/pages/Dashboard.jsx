@@ -47,7 +47,7 @@ setData(null);
 try{
 
 const res=await fetch(
-"https://productify-ai-1.onrender.com",
+"https://productify-ai-2.onrender.com",
 {
 method:"POST",
 
