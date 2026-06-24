@@ -46,8 +46,8 @@ setData(null);
 
 try{
 
-const res=await fetch(
-"https://productify-ai-2.onrender.com",
+const res = await fetch(
+"https://productify-ai-2.onrender.com/analyze",
 {
 method:"POST",
 
