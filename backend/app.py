@@ -9,7 +9,14 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "http://localhost:5173",
+            "https://productify-ai-five.vercel.app/"
+        ]
+    }
+})
 
 client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
@@ -19,81 +26,8 @@ SERP_API_KEY = os.getenv("SERP_API_KEY")
 
 
 @app.route("/")
-def get_live_prices(query):
-
-    marketplaces=[]
-
-    engines={
-
-        "Amazon":"amazon",
-        "Google Shopping":"google_shopping"
-
-    }
-
-    for name,engine in engines.items():
-
-        try:
-
-            url="https://serpapi.com/search"
-
-            params={
-
-                "engine":engine,
-                "q":query,
-                "api_key":SERP_API_KEY,
-                "gl":"in",
-                "hl":"en"
-
-            }
-
-            response=requests.get(
-                url,
-                params=params
-            )
-
-            data=response.json()
-
-            results=data.get(
-                "shopping_results",
-                []
-            )
-
-            if results:
-
-                product=results[0]
-
-                marketplaces.append({
-
-                    "name":name,
-
-                    "price":product.get(
-                        "price",
-                        "N/A"
-                    ),
-
-                    "rating":str(
-                        product.get(
-                            "rating",
-                            "4.2"
-                        )
-                    ),
-
-                    "url":product.get(
-                        "link",
-                        "#"
-                    )
-
-                })
-
-        except:
-
-            pass
-
-    return marketplaces
 def home():
-
-    return "Productify AI Running 🚀"
-
+    return "OK"
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
