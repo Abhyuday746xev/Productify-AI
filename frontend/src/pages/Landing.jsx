@@ -203,6 +203,10 @@ export default function Landing() {
           Join the next generation of AI product intelligence
         </p>
 
+        <p className="text-gray-400 mt-5 text-sm text-center max-w-3xl mx-auto">
+          Productify AI provides AI-generated product insights and approximate marketplace price comparisons using SERP-based references. Prices may differ from actual listings due to seller variations, offers, location, and availability.
+        </p>
+
         
 
       </section>
