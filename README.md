@@ -2,13 +2,14 @@
 
 # Productify AI
 
-Productify AI is an AI-powered shopping companion and product analysis platform designed to help users make smarter purchase decisions. Instead of only showing product details, it analyzes products, compares marketplace pricing, summarizes advantages and drawbacks, and provides AI-driven recommendations.
+Productify AI is an AI-powered shopping assistant and product analysis platform that interprets user queries, generates product insights, compares marketplace offerings, and provides approximate price intelligence using AI and SERP API integration.
 
 The application combines generative AI with marketplace search capabilities to deliver product insights and estimated market price ranges. Productify AI is intended as a decision-support tool rather than a real-time price tracker.
 
+
+
 ## Live Demo
 
-Add your deployed link here:
 
 `https://productify-ai-five.vercel.app/`
 
